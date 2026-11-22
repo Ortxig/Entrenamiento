@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#173f35">
+<meta name="description" content="Plan semanal de entrenamiento y fuerza">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<title>Entrenamiento</title>
+<style>
+:root{--green:#173f35;--mint:#e9f2ed;--ink:#17231f;--muted:#66756e;--line:#e1e8e3;--bg:#f5f7f5;--white:#fff;--orange:#d97736}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.45 system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
+header{background:var(--green);color:white;padding:24px 18px 22px;border-radius:0 0 24px 24px}
+header .eyebrow{font-size:12px;letter-spacing:.12em;text-transform:uppercase;opacity:.78}
+h1{font-size:28px;line-height:1.1;margin:7px 0 5px}header p{margin:0;color:#dce9e2;font-size:14px}
+main{max-width:720px;margin:auto;padding:16px 14px 40px}
+.progress-card,.day,.note{background:var(--white);border:1px solid var(--line);border-radius:17px;padding:15px;margin-bottom:13px}
+.progress-top{display:flex;justify-content:space-between;align-items:center;font-weight:650;font-size:14px}
+.track{height:9px;background:#edf1ee;border-radius:20px;margin-top:10px;overflow:hidden}.bar{height:100%;width:0;background:#39866a;border-radius:20px;transition:width .2s}
+.day-head{display:flex;gap:12px;align-items:center}
+.day-name{font-weight:750;font-size:17px}.day-sub{color:var(--muted);font-size:13px}
+.day-badge{margin-left:auto;border-radius:20px;background:var(--mint);color:var(--green);padding:5px 9px;font-size:11px;font-weight:700}
+.day.done{border-color:#8db8a2;background:#fbfefc}
+.task{display:flex;gap:11px;align-items:flex-start;padding:11px 0;border-top:1px solid #edf1ee;margin-top:10px}
+.task input{width:21px;height:21px;accent-color:var(--green);flex:none;margin:2px 0 0}
+.task strong{display:block;font-size:14px}.task small{display:block;color:var(--muted);font-size:12px;margin-top:3px}
+.exercise-list{margin:9px 0 0 32px;padding:0;list-style:none}
+.exercise{padding:8px 0;border-top:1px dashed #e8ede9;display:flex;gap:9px;align-items:flex-start;font-size:13px}
+.exercise input{width:18px;height:18px;accent-color:var(--green);flex:none;margin:1px 0 0}
+.exercise label{flex:1}.exercise em{font-style:normal;color:var(--muted);font-size:12px;white-space:nowrap}
+.details{color:var(--muted);font-size:13px;margin:8px 0 0 32px}
+.actions{display:flex;gap:9px;margin:16px 0}.btn{border:0;border-radius:12px;padding:12px 14px;font-weight:650;font-size:14px;background:var(--green);color:white}.btn.secondary{background:#e7eee9;color:var(--green)}
+.note h2{font-size:16px;margin:0 0 7px}.note p{font-size:13px;color:var(--muted);margin:0}
+footer{text-align:center;color:var(--muted);font-size:11px;padding:10px 0 20px}
+textarea{width:100%;border:1px solid var(--line);border-radius:10px;padding:10px;font:inherit;font-size:14px;min-height:66px;margin-top:8px}
+@media(min-width:600px){main{padding-top:20px}.week-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.day{margin:0}.progress-card,.actions,.note,footer{grid-column:1/-1}}
+</style>
+</head>
+<body>
+<header>
+ <div class="eyebrow">Tu plan semanal</div>
+ <h1>Entrenamiento</h1>
+ <p>23–29 de noviembre · Media maratón + fuerza</p>
+</header>
+<main>
+ <section class="progress-card">
+  <div class="progress-top"><span>Progreso de la semana</span><span id="count">0 / 7 sesiones</span></div>
+  <div class="track"><div class="bar" id="bar"></div></div>
+ </section>
+ <div class="week-grid" id="week">
+  <section class="day" data-day="mon">
+   <div class="day-head"><div><div class="day-name">Lunes 23</div><div class="day-sub">Recuperación</div></div><span class="day-badge">SUAVE</span></div>
+   <div class="task"><input type="checkbox" id="mon-main"><label for="mon-main"><strong>Recuperación de la caminata</strong><small>Paseo muy suave opcional y movilidad. Nada de carrera ni fuerza de piernas.</small></label></div>
+  </section>
+  <section class="day" data-day="tue">
+   <div class="day-head"><div><div class="day-name">Martes 24</div><div class="day-sub">Rodaje aeróbico</div></div><span class="day-badge">CARRERA</span></div>
+   <div class="task"><input type="checkbox" id="tue-main"><label for="tue-main"><strong>Rodaje muy cómodo</strong><small>30–40 min suaves, hablando sin dificultad. Si persiste la carga, cambia por paseo o descanso.</small></label></div>
+  </section>
+  <section class="day" data-day="wed">
+   <div class="day-head"><div><div class="day-name">Miércoles 25</div><div class="day-sub">Fuerza · brazos y espalda</div></div><span class="day-badge">FUERZA A</span></div>
+   <div class="task"><input type="checkbox" id="wed-main"><label for="wed-main"><strong>Sesión de fuerza</strong><small>Controla el movimiento y deja 2–3 repeticiones en reserva.</small></label></div>
+   <ul class="exercise-list">
+    <li class="exercise"><input type="checkbox" id="w1"><label for="w1">Curl de bíceps</label><em>3 × 12</em></li>
+    <li class="exercise"><input type="checkbox" id="w2"><label for="w2">Curl martillo</label><em>2 × 12</em></li>
+    <li class="exercise"><input type="checkbox" id="w3"><label for="w3">Extensión de tríceps con banda</label><em>3 × 12</em></li>
+    <li class="exercise"><input type="checkbox" id="w4"><label for="w4">Remo a una mano apoyada</label><em>3 × 10/lado</em></li>
+    <li class="exercise"><input type="checkbox" id="w5"><label for="w5">Remo sentado con banda</label><em>2 × 12</em></li>
+   </ul>
+   <p class="details">Evita cualquier movimiento que provoque dolor en el hombro.</p>
+  </section>
+  <section class="day" data-day="thu">
+   <div class="day-head"><div><div class="day-name">Jueves 26</div><div class="day-sub">Tirada larga</div></div><span class="day-badge">CARRERA</span></div>
+   <div class="task"><input type="checkbox" id="thu-main"><label for="thu-main"><strong>Rodaje largo fácil</strong><small>Duración/distancia según recuperación. Sin objetivo de ritmo; termina con sensación de poder continuar.</small></label></div>
+  </section>
+  <section class="day" data-day="fri">
+   <div class="day-head"><div><div class="day-name">Viernes 27</div><div class="day-sub">Recuperación y movilidad</div></div><span class="day-badge">RECUPERAR</span></div>
+   <div class="task"><input type="checkbox" id="fri-main"><label for="fri-main"><strong>Movilidad suave</strong><small>10–15 min cómodos. Sin añadir carga si hay fatiga de la tirada larga.</small></label></div>
+  </section>
+  <section class="day" data-day="sat">
+   <div class="day-head"><div><div class="day-name">Sábado 28</div><div class="day-sub">Fuerza · piernas y abdomen</div></div><span class="day-badge">FUERZA B</span></div>
+   <div class="task"><input type="checkbox" id="sat-main"><label for="sat-main"><strong>Sesión de fuerza</strong><small>Hazla solo si las piernas están recuperadas. Si no, reduce una serie por ejercicio o aplázala.</small></label></div>
+   <ul class="exercise-list">
+    <li class="exercise"><input type="checkbox" id="s1"><label for="s1">Sentadilla con mancuernas</label><em>3 × 10</em></li>
+    <li class="exercise"><input type="checkbox" id="s2"><label for="s2">Peso muerto rumano</label><em>3 × 10</em></li>
+    <li class="exercise"><input type="checkbox" id="s3"><label for="s3">Puente de glúteos</label><em>3 × 12</em></li>
+    <li class="exercise"><input type="checkbox" id="s4"><label for="s4">Pasos laterales con banda</label><em>2 × 12/lado</em></li>
+    <li class="exercise"><input type="checkbox" id="s5"><label for="s5">Elevación de gemelos</label><em>2 × 15</em></li>
+    <li class="exercise"><input type="checkbox" id="s6"><label for="s6">Crunch en banco</label><em>2 × 12</em></li>
+    <li class="exercise"><input type="checkbox" id="s7"><label for="s7">Crunch inverso</label><em>2 × 12</em></li>
+   </ul>
+  </section>
+  <section class="day" data-day="sun">
+   <div class="day-head"><div><div class="day-name">Domingo 29</div><div class="day-sub">Descanso</div></div><span class="day-badge">DESCANSO</span></div>
+   <div class="task"><input type="checkbox" id="sun-main"><label for="sun-main"><strong>Descanso completo</strong><small>Un paseo tranquilo es opcional. Prioriza sueño y recuperación.</small></label></div>
+  </section>
+  <section class="note">
+   <h2>Mis sensaciones de la semana</h2>
+   <p>Apunta cómo te has encontrado, molestias, pesos utilizados o cualquier observación.</p>
+   <textarea id="notes" placeholder="Ej.: piernas cargadas el jueves, he usado 4 kg en sentadillas..."></textarea>
+  </section>
+  <div class="actions">
+   <button class="btn" id="reset">Reiniciar semana</button>
+   <button class="btn secondary" id="export">Exportar resumen</button>
+  </div>
+ </div>
+ <footer>Los cambios se guardan en este dispositivo y navegador.</footer>
+</main>
+<script>
+const KEY='entrenamientoSemana23Nov2026';
+const controls=[...document.querySelectorAll('input[type=checkbox]')];
+const notes=document.getElementById('notes');
+function load(){try{const d=JSON.parse(localStorage.getItem(KEY)||'{}');controls.forEach(x=>x.checked=!!d[x.id]);notes.value=d.notes||'';}catch(e){}update();}
+function save(){const d={notes:notes.value};controls.forEach(x=>d[x.id]=x.checked);localStorage.setItem(KEY,JSON.stringify(d));update();}
+function update(){const mains=['mon-main','tue-main','wed-main','thu-main','fri-main','sat-main','sun-main'];const done=mains.filter(id=>document.getElementById(id).checked).length;document.getElementById('count').textContent=done+' / 7 sesiones';document.getElementById('bar').style.width=(done/7*100)+'%';document.querySelectorAll('.day').forEach(day=>{const c=day.querySelector('.task input');day.classList.toggle('done',!!c?.checked);});}
+controls.forEach(x=>x.addEventListener('change',save));notes.addEventListener('input',save);
+document.getElementById('reset').addEventListener('click',()=>{if(confirm('¿Reiniciar todas las marcas y notas de esta semana?')){controls.forEach(x=>x.checked=false);notes.value='';save();}});
+document.getElementById('export').addEventListener('click',()=>{let out='ENTRENAMIENTO · 23–29 NOVIEMBRE\n\n';document.querySelectorAll('.day').forEach(day=>{out+=day.querySelector('.day-name').textContent+' — '+day.querySelector('.day-sub').textContent+'\n';day.querySelectorAll('.exercise').forEach(e=>{const i=e.querySelector('input');out+=(i.checked?'[x] ':'[ ] ')+e.querySelector('label').textContent+' '+e.querySelector('em').textContent+'\n';});});out+='\nSensaciones:\n'+notes.value;const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([out],{type:'text/plain'}));a.download='resumen-entrenamiento.txt';a.click();URL.revokeObjectURL(a.href);});
+load();
+if('serviceWorker' in navigator && location.protocol.startsWith('http')){window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js'));}
+</script>
+</body></html>
