@@ -1,122 +1,86 @@
 <!doctype html>
 <html lang="es">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="theme-color" content="#173f35">
-<meta name="description" content="Plan semanal de entrenamiento y fuerza">
-<link rel="manifest" href="manifest.webmanifest">
-<link rel="icon" href="icon.svg" type="image/svg+xml">
-<title>Entrenamiento</title>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#173f35"><meta name="description" content="Diario personal de entrenamiento, fuerza y evolución">
+<link rel="manifest" href="manifest.webmanifest"><link rel="icon" href="icon.svg" type="image/svg+xml">
+<title>Mi diario de entrenamiento</title>
 <style>
-:root{--green:#173f35;--mint:#e9f2ed;--ink:#17231f;--muted:#66756e;--line:#e1e8e3;--bg:#f5f7f5;--white:#fff;--orange:#d97736}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.45 system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
-header{background:var(--green);color:white;padding:24px 18px 22px;border-radius:0 0 24px 24px}
-header .eyebrow{font-size:12px;letter-spacing:.12em;text-transform:uppercase;opacity:.78}
-h1{font-size:28px;line-height:1.1;margin:7px 0 5px}header p{margin:0;color:#dce9e2;font-size:14px}
-main{max-width:720px;margin:auto;padding:16px 14px 40px}
-.progress-card,.day,.note{background:var(--white);border:1px solid var(--line);border-radius:17px;padding:15px;margin-bottom:13px}
-.progress-top{display:flex;justify-content:space-between;align-items:center;font-weight:650;font-size:14px}
-.track{height:9px;background:#edf1ee;border-radius:20px;margin-top:10px;overflow:hidden}.bar{height:100%;width:0;background:#39866a;border-radius:20px;transition:width .2s}
-.day-head{display:flex;gap:12px;align-items:center}
-.day-name{font-weight:750;font-size:17px}.day-sub{color:var(--muted);font-size:13px}
-.day-badge{margin-left:auto;border-radius:20px;background:var(--mint);color:var(--green);padding:5px 9px;font-size:11px;font-weight:700}
-.day.done{border-color:#8db8a2;background:#fbfefc}
-.task{display:flex;gap:11px;align-items:flex-start;padding:11px 0;border-top:1px solid #edf1ee;margin-top:10px}
-.task input{width:21px;height:21px;accent-color:var(--green);flex:none;margin:2px 0 0}
-.task strong{display:block;font-size:14px}.task small{display:block;color:var(--muted);font-size:12px;margin-top:3px}
-.exercise-list{margin:9px 0 0 32px;padding:0;list-style:none}
-.exercise{padding:8px 0;border-top:1px dashed #e8ede9;display:flex;gap:9px;align-items:flex-start;font-size:13px}
-.exercise input{width:18px;height:18px;accent-color:var(--green);flex:none;margin:1px 0 0}
-.exercise label{flex:1}.exercise em{font-style:normal;color:var(--muted);font-size:12px;white-space:nowrap}
-.details{color:var(--muted);font-size:13px;margin:8px 0 0 32px}
-.actions{display:flex;gap:9px;margin:16px 0}.btn{border:0;border-radius:12px;padding:12px 14px;font-weight:650;font-size:14px;background:var(--green);color:white}.btn.secondary{background:#e7eee9;color:var(--green)}
-.note h2{font-size:16px;margin:0 0 7px}.note p{font-size:13px;color:var(--muted);margin:0}
-footer{text-align:center;color:var(--muted);font-size:11px;padding:10px 0 20px}
-textarea{width:100%;border:1px solid var(--line);border-radius:10px;padding:10px;font:inherit;font-size:14px;min-height:66px;margin-top:8px}
-@media(min-width:600px){main{padding-top:20px}.week-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.day{margin:0}.progress-card,.actions,.note,footer{grid-column:1/-1}}
-</style>
-</head>
-<body>
-<header>
- <div class="eyebrow">Tu plan semanal</div>
- <h1>Entrenamiento</h1>
- <p>23–29 de noviembre · Media maratón + fuerza</p>
-</header>
+:root{--g:#173f35;--g2:#2e765b;--mint:#e9f2ed;--ink:#17231f;--muted:#68766f;--line:#e0e8e2;--bg:#f4f7f4;--white:#fff;--warn:#fff3e8;--red:#f9e9e6}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.45 system-ui,-apple-system,Segoe UI,Roboto,sans-serif}header{background:var(--g);color:#fff;padding:22px 17px 18px;border-radius:0 0 24px 24px}header .eyebrow{font-size:11px;letter-spacing:.13em;text-transform:uppercase;opacity:.8}h1{font-size:25px;line-height:1.1;margin:6px 0}header p{margin:0;color:#dce9e2;font-size:13px}main{max-width:760px;margin:auto;padding:14px 13px 38px}.tabs{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin:0 0 14px}.tab{background:#fff;color:var(--g);border:1px solid var(--line);border-radius:11px;padding:10px 4px;font-weight:700;font-size:11px}.tab.active{background:var(--g);color:white;border-color:var(--g)}.tab span{display:block;font-size:17px;margin-bottom:2px}.panel,.day,.stat,.session,.week-item{background:var(--white);border:1px solid var(--line);border-radius:16px;padding:14px;margin-bottom:11px}.panel h2,.section-title{font-size:17px;margin:0 0 9px}.muted,.sub{color:var(--muted);font-size:12px}.progress-top{display:flex;justify-content:space-between;gap:8px;font-size:13px;font-weight:700}.track{height:9px;background:#edf1ee;border-radius:20px;margin-top:9px;overflow:hidden}.bar{height:100%;background:var(--g2);width:0;border-radius:20px;transition:width .2s}.day-head{display:flex;align-items:center;gap:9px}.day-name{font-size:16px;font-weight:800}.day-sub{font-size:12px;color:var(--muted)}.pill{margin-left:auto;background:var(--mint);color:var(--g);padding:5px 8px;border-radius:20px;font-size:10px;font-weight:800;white-space:nowrap}.day.done{border-color:#8db8a2}.task{display:flex;gap:10px;align-items:flex-start;border-top:1px solid #edf1ee;margin-top:10px;padding-top:10px}.task input,.exercise input{width:20px;height:20px;accent-color:var(--g);flex:none;margin:1px 0 0}.task strong{display:block;font-size:13px}.task small{display:block;color:var(--muted);font-size:12px;margin-top:3px}.exercise-list{list-style:none;padding:0;margin:8px 0 0 30px}.exercise{display:flex;align-items:center;gap:8px;padding:7px 0;border-top:1px dashed #e8ede9;font-size:12px}.exercise em{margin-left:auto;color:var(--muted);font-style:normal;white-space:nowrap}.day-note{font-size:12px;color:var(--muted);margin:9px 0 0 30px}.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.stat strong{display:block;font-size:22px;color:var(--g)}.stat span{font-size:11px;color:var(--muted)}label{display:block;font-size:11px;color:var(--muted);font-weight:750;margin:0 0 5px}input,select,textarea{font:inherit;color:var(--ink);background:white;border:1px solid #d8e1da;border-radius:10px;padding:10px;width:100%;min-width:0}input[type=checkbox]{width:20px}input[type=file]{padding:8px}textarea{min-height:75px;resize:vertical}.formgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.field{margin-bottom:10px}.btn{border:0;border-radius:11px;padding:11px 13px;font-weight:750;font-size:13px;background:var(--g);color:#fff;cursor:pointer}.btn.secondary{background:var(--mint);color:var(--g)}.btn.danger{background:var(--red);color:#87372d}.btn.small{padding:8px 10px;font-size:11px}.actions{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0}.actions .btn{flex:1}.hidden{display:none!important}.week-item{display:flex;align-items:center;justify-content:space-between;gap:8px}.week-item strong{font-size:13px}.week-item small{display:block;color:var(--muted);font-size:11px}.session-top{display:flex;justify-content:space-between;gap:8px;align-items:center}.session h3{font-size:14px;margin:0}.session p{font-size:12px;color:var(--muted);margin:6px 0}.tag{background:var(--mint);color:var(--g);border-radius:8px;padding:4px 7px;font-size:10px;font-weight:800}.empty{color:var(--muted);font-size:13px;padding:12px 3px}.notice{background:#fff7e9;border:1px solid #f0dfc5;padding:11px;border-radius:12px;font-size:12px;color:#72552f;margin-bottom:12px}footer{text-align:center;color:var(--muted);font-size:10px;padding:12px}
+@media(min-width:620px){.weekgrid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.day{margin:0}.weekgrid .wide{grid-column:1/-1}}
+</style></head><body>
+<header><div class="eyebrow">Tu preparación · media maratón</div><h1>Mi diario de entrenamiento</h1><p>Planifica · registra · observa tu evolución</p></header>
 <main>
- <section class="progress-card">
-  <div class="progress-top"><span>Progreso de la semana</span><span id="count">0 / 7 sesiones</span></div>
-  <div class="track"><div class="bar" id="bar"></div></div>
- </section>
- <div class="week-grid" id="week">
-  <section class="day" data-day="mon">
-   <div class="day-head"><div><div class="day-name">Lunes 23</div><div class="day-sub">Recuperación</div></div><span class="day-badge">SUAVE</span></div>
-   <div class="task"><input type="checkbox" id="mon-main"><label for="mon-main"><strong>Recuperación de la caminata</strong><small>Paseo muy suave opcional y movilidad. Nada de carrera ni fuerza de piernas.</small></label></div>
-  </section>
-  <section class="day" data-day="tue">
-   <div class="day-head"><div><div class="day-name">Martes 24</div><div class="day-sub">Rodaje aeróbico</div></div><span class="day-badge">CARRERA</span></div>
-   <div class="task"><input type="checkbox" id="tue-main"><label for="tue-main"><strong>Rodaje muy cómodo</strong><small>30–40 min suaves, hablando sin dificultad. Si persiste la carga, cambia por paseo o descanso.</small></label></div>
-  </section>
-  <section class="day" data-day="wed">
-   <div class="day-head"><div><div class="day-name">Miércoles 25</div><div class="day-sub">Fuerza · brazos y espalda</div></div><span class="day-badge">FUERZA A</span></div>
-   <div class="task"><input type="checkbox" id="wed-main"><label for="wed-main"><strong>Sesión de fuerza</strong><small>Controla el movimiento y deja 2–3 repeticiones en reserva.</small></label></div>
-   <ul class="exercise-list">
-    <li class="exercise"><input type="checkbox" id="w1"><label for="w1">Curl de bíceps</label><em>3 × 12</em></li>
-    <li class="exercise"><input type="checkbox" id="w2"><label for="w2">Curl martillo</label><em>2 × 12</em></li>
-    <li class="exercise"><input type="checkbox" id="w3"><label for="w3">Extensión de tríceps con banda</label><em>3 × 12</em></li>
-    <li class="exercise"><input type="checkbox" id="w4"><label for="w4">Remo a una mano apoyada</label><em>3 × 10/lado</em></li>
-    <li class="exercise"><input type="checkbox" id="w5"><label for="w5">Remo sentado con banda</label><em>2 × 12</em></li>
-   </ul>
-   <p class="details">Evita cualquier movimiento que provoque dolor en el hombro.</p>
-  </section>
-  <section class="day" data-day="thu">
-   <div class="day-head"><div><div class="day-name">Jueves 26</div><div class="day-sub">Tirada larga</div></div><span class="day-badge">CARRERA</span></div>
-   <div class="task"><input type="checkbox" id="thu-main"><label for="thu-main"><strong>Rodaje largo fácil</strong><small>Duración/distancia según recuperación. Sin objetivo de ritmo; termina con sensación de poder continuar.</small></label></div>
-  </section>
-  <section class="day" data-day="fri">
-   <div class="day-head"><div><div class="day-name">Viernes 27</div><div class="day-sub">Recuperación y movilidad</div></div><span class="day-badge">RECUPERAR</span></div>
-   <div class="task"><input type="checkbox" id="fri-main"><label for="fri-main"><strong>Movilidad suave</strong><small>10–15 min cómodos. Sin añadir carga si hay fatiga de la tirada larga.</small></label></div>
-  </section>
-  <section class="day" data-day="sat">
-   <div class="day-head"><div><div class="day-name">Sábado 28</div><div class="day-sub">Fuerza · piernas y abdomen</div></div><span class="day-badge">FUERZA B</span></div>
-   <div class="task"><input type="checkbox" id="sat-main"><label for="sat-main"><strong>Sesión de fuerza</strong><small>Hazla solo si las piernas están recuperadas. Si no, reduce una serie por ejercicio o aplázala.</small></label></div>
-   <ul class="exercise-list">
-    <li class="exercise"><input type="checkbox" id="s1"><label for="s1">Sentadilla con mancuernas</label><em>3 × 10</em></li>
-    <li class="exercise"><input type="checkbox" id="s2"><label for="s2">Peso muerto rumano</label><em>3 × 10</em></li>
-    <li class="exercise"><input type="checkbox" id="s3"><label for="s3">Puente de glúteos</label><em>3 × 12</em></li>
-    <li class="exercise"><input type="checkbox" id="s4"><label for="s4">Pasos laterales con banda</label><em>2 × 12/lado</em></li>
-    <li class="exercise"><input type="checkbox" id="s5"><label for="s5">Elevación de gemelos</label><em>2 × 15</em></li>
-    <li class="exercise"><input type="checkbox" id="s6"><label for="s6">Crunch en banco</label><em>2 × 12</em></li>
-    <li class="exercise"><input type="checkbox" id="s7"><label for="s7">Crunch inverso</label><em>2 × 12</em></li>
-   </ul>
-  </section>
-  <section class="day" data-day="sun">
-   <div class="day-head"><div><div class="day-name">Domingo 29</div><div class="day-sub">Descanso</div></div><span class="day-badge">DESCANSO</span></div>
-   <div class="task"><input type="checkbox" id="sun-main"><label for="sun-main"><strong>Descanso completo</strong><small>Un paseo tranquilo es opcional. Prioriza sueño y recuperación.</small></label></div>
-  </section>
-  <section class="note">
-   <h2>Mis sensaciones de la semana</h2>
-   <p>Apunta cómo te has encontrado, molestias, pesos utilizados o cualquier observación.</p>
-   <textarea id="notes" placeholder="Ej.: piernas cargadas el jueves, he usado 4 kg en sentadillas..."></textarea>
-  </section>
-  <div class="actions">
-   <button class="btn" id="reset">Reiniciar semana</button>
-   <button class="btn secondary" id="export">Exportar resumen</button>
-  </div>
+<nav class="tabs" aria-label="Secciones"><button class="tab active" data-tab="plan"><span>▦</span>Plan</button><button class="tab" data-tab="log"><span>＋</span>Registrar</button><button class="tab" data-tab="history"><span>◷</span>Histórico</button><button class="tab" data-tab="evolution"><span>↗</span>Evolución</button></nav>
+<section id="view-plan">
+ <div class="panel"><div class="progress-top"><span id="weekTitle">Semana 23–29 noviembre 2026</span><span id="weekProgress">0 / 7 días</span></div><div class="track"><div class="bar" id="weekBar"></div></div><p class="muted" style="margin:8px 0 0">Marca las sesiones y ejercicios a medida que los completes. Los cambios se guardan automáticamente.</p></div>
+ <div class="weekgrid" id="weekGrid">
+  <article class="day" data-day="mon"><div class="day-head"><div><div class="day-name">Lunes 23</div><div class="day-sub">Recuperación</div></div><span class="pill">SUAVE</span></div><div class="task"><input type="checkbox" id="mon-main"><label for="mon-main"><strong>Recuperación de la caminata</strong><small>Paseo muy suave opcional y movilidad. Nada de carrera ni fuerza de piernas.</small></label></div></article>
+  <article class="day" data-day="tue"><div class="day-head"><div><div class="day-name">Martes 24</div><div class="day-sub">Rodaje aeróbico</div></div><span class="pill">CARRERA</span></div><div class="task"><input type="checkbox" id="tue-main"><label for="tue-main"><strong>Rodaje muy cómodo</strong><small>30–40 min suaves, hablando sin dificultad. Si persiste la carga, cambia por paseo o descanso.</small></label></div></article>
+  <article class="day" data-day="wed"><div class="day-head"><div><div class="day-name">Miércoles 25</div><div class="day-sub">Fuerza A · brazos y espalda</div></div><span class="pill">FUERZA</span></div><div class="task"><input type="checkbox" id="wed-main"><label for="wed-main"><strong>Sesión de fuerza</strong><small>Controla el movimiento y deja 2–3 repeticiones en reserva.</small></label></div><ul class="exercise-list">
+   <li class="exercise"><input type="checkbox" id="w1"><label for="w1">Curl de bíceps</label><em>3 × 12</em></li><li class="exercise"><input type="checkbox" id="w2"><label for="w2">Curl martillo</label><em>2 × 12</em></li><li class="exercise"><input type="checkbox" id="w3"><label for="w3">Extensión de tríceps con banda</label><em>3 × 12</em></li><li class="exercise"><input type="checkbox" id="w4"><label for="w4">Remo a una mano apoyada</label><em>3 × 10/lado</em></li><li class="exercise"><input type="checkbox" id="w5"><label for="w5">Remo sentado con banda</label><em>2 × 12</em></li></ul><p class="day-note">Evita cualquier movimiento que provoque dolor en el hombro.</p></article>
+  <article class="day" data-day="thu"><div class="day-head"><div><div class="day-name">Jueves 26</div><div class="day-sub">Tirada larga fácil</div></div><span class="pill">CARRERA</span></div><div class="task"><input type="checkbox" id="thu-main"><label for="thu-main"><strong>Rodaje largo fácil</strong><small>Duración/distancia según recuperación. Sin objetivo de ritmo; termina con sensación de poder continuar.</small></label></div></article>
+  <article class="day" data-day="fri"><div class="day-head"><div><div class="day-name">Viernes 27</div><div class="day-sub">Recuperación y movilidad</div></div><span class="pill">RECUPERAR</span></div><div class="task"><input type="checkbox" id="fri-main"><label for="fri-main"><strong>Movilidad suave</strong><small>10–15 min cómodos. Sin añadir carga si hay fatiga de la tirada larga.</small></label></div></article>
+  <article class="day" data-day="sat"><div class="day-head"><div><div class="day-name">Sábado 28</div><div class="day-sub">Fuerza B · piernas y abdomen</div></div><span class="pill">FUERZA</span></div><div class="task"><input type="checkbox" id="sat-main"><label for="sat-main"><strong>Sesión de fuerza</strong><small>Solo si las piernas están recuperadas. Si no, reduce una serie por ejercicio o aplázala.</small></label></div><ul class="exercise-list">
+   <li class="exercise"><input type="checkbox" id="s1"><label for="s1">Sentadilla con mancuernas</label><em>3 × 10</em></li><li class="exercise"><input type="checkbox" id="s2"><label for="s2">Peso muerto rumano</label><em>3 × 10</em></li><li class="exercise"><input type="checkbox" id="s3"><label for="s3">Puente de glúteos</label><em>3 × 12</em></li><li class="exercise"><input type="checkbox" id="s4"><label for="s4">Pasos laterales con banda</label><em>2 × 12/lado</em></li><li class="exercise"><input type="checkbox" id="s5"><label for="s5">Elevación de gemelos</label><em>2 × 15</em></li><li class="exercise"><input type="checkbox" id="s6"><label for="s6">Crunch en banco</label><em>2 × 12</em></li><li class="exercise"><input type="checkbox" id="s7"><label for="s7">Crunch inverso</label><em>2 × 12</em></li></ul></article>
+  <article class="day" data-day="sun"><div class="day-head"><div><div class="day-name">Domingo 29</div><div class="day-sub">Descanso</div></div><span class="pill">DESCANSO</span></div><div class="task"><input type="checkbox" id="sun-main"><label for="sun-main"><strong>Descanso completo</strong><small>Un paseo tranquilo es opcional. Prioriza sueño y recuperación.</small></label></div></article>
+  <article class="panel wide"><h2>Mis sensaciones de la semana</h2><p class="muted">Anota cansancio, molestias, pesos utilizados o cualquier observación.</p><textarea id="weekNotes" placeholder="Ej.: piernas cargadas el jueves; he usado 4 kg en sentadillas..."></textarea><div class="actions"><button class="btn secondary" id="saveWeek">Guardar semana en histórico</button><button class="btn secondary" id="backupPlan">Hacer copia de seguridad</button></div><p class="muted">Guardar en histórico crea una fotografía de esta semana; no borra el plan ni las marcas.</p></article>
  </div>
- <footer>Los cambios se guardan en este dispositivo y navegador.</footer>
+</section>
+<section id="view-log" class="hidden">
+ <div class="panel"><h2>Registrar un entrenamiento</h2><p class="muted">Añade los datos de Garmin o de tu sesión. Podrás consultarlos después en el histórico.</p>
+ <form id="sessionForm">
+  <div class="formgrid"><div class="field"><label for="logDate">FECHA</label><input id="logDate" type="date" required></div><div class="field"><label for="logType">TIPO</label><select id="logType"><option>Carrera</option><option>Fuerza</option><option>Caminata</option><option>Bicicleta</option><option>Movilidad</option><option>Otro</option></select></div>
+  <div class="field"><label for="logDistance">DISTANCIA (km)</label><input id="logDistance" type="number" min="0" step="0.01" placeholder="Ej. 7,5"></div><div class="field"><label for="logDuration">DURACIÓN</label><input id="logDuration" placeholder="Ej. 48:30"></div>
+  <div class="field"><label for="logPace">RITMO (min/km)</label><input id="logPace" placeholder="Ej. 6:45"></div><div class="field"><label for="logHR">FC MEDIA (ppm)</label><input id="logHR" type="number" min="0" placeholder="Ej. 155"></div>
+  <div class="field"><label for="logEffort">ESFUERZO (1–10)</label><select id="logEffort"><option value="">Sin indicar</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option></select></div><div class="field"><label for="logWeight">PESO / CARGA (si fuerza)</label><input id="logWeight" placeholder="Ej. mancuernas 4 kg"></div></div>
+  <div class="field"><label for="logNotes">SENSACIONES Y OBSERVACIONES</label><textarea id="logNotes" placeholder="Cómo te has encontrado, molestias, terreno, clima..."></textarea></div><button class="btn" type="submit" style="width:100%">Guardar entrenamiento</button>
+ </form></div>
+ <div class="panel"><h2>Últimos entrenamientos</h2><div id="recentSessions"></div></div>
+</section>
+<section id="view-history" class="hidden"><div class="panel"><h2>Semanas guardadas</h2><p class="muted">Cada vez que cierres una semana, quedará aquí con sus marcas y notas.</p><div id="weeksList"></div></div><div class="panel"><h2>Todos los entrenamientos registrados</h2><div id="allSessions"></div></div></section>
+<section id="view-evolution" class="hidden"><div class="panel"><h2>Tu evolución</h2><p class="muted">Resumen basado en las sesiones que registres manualmente.</p><div class="grid2"><div class="stat"><strong id="totalRuns">0</strong><span>Sesiones de carrera</span></div><div class="stat"><strong id="totalKm">0 km</strong><span>Kilómetros registrados</span></div><div class="stat"><strong id="avgHR">—</strong><span>FC media de carrera</span></div><div class="stat"><strong id="totalStrength">0</strong><span>Sesiones de fuerza</span></div></div></div><div class="panel"><h2>Últimas carreras</h2><div id="runEvolution"></div></div><div class="panel"><h2>Prueba de esfuerzo</h2><p class="muted">Valores que hemos recuperado de la prueba y que utilizaremos como referencia para interpretar los entrenamientos.</p><div class="grid2"><div class="stat"><strong>160 ppm</strong><span>VT1</span></div><div class="stat"><strong>172 ppm</strong><span>VT2</span></div><div class="stat"><strong>183 ppm</strong><span>FC máxima alcanzada</span></div><div class="stat"><strong>38</strong><span>VO₂ máx · ml/kg/min</span></div></div><p class="muted">Consta que tienes autorización médica para correr según esta prueba. Estos valores son referencias de la prueba, no límites médicos ni objetivos que haya que forzar.</p></div><div class="panel"><h2>Un apunte importante</h2><p class="muted">Los datos se calculan únicamente con los entrenamientos que añadas aquí. No se importan automáticamente desde Garmin.</p></div></section>
+<div class="panel"><div class="actions"><button class="btn secondary" id="exportAll">Exportar copia completa</button><button class="btn secondary" id="importBtn">Restaurar copia</button></div><input id="importFile" type="file" accept="application/json,.json" class="hidden"><p class="muted">Haz una copia de seguridad de vez en cuando, especialmente antes de actualizar la aplicación o cambiar de móvil. La copia incluye semanas y entrenamientos registrados.</p></div>
+<footer>Mi diario de entrenamiento · Los datos se guardan en este dispositivo y navegador.</footer>
 </main>
 <script>
-const KEY='entrenamientoSemana23Nov2026';
-const controls=[...document.querySelectorAll('input[type=checkbox]')];
-const notes=document.getElementById('notes');
-function load(){try{const d=JSON.parse(localStorage.getItem(KEY)||'{}');controls.forEach(x=>x.checked=!!d[x.id]);notes.value=d.notes||'';}catch(e){}update();}
-function save(){const d={notes:notes.value};controls.forEach(x=>d[x.id]=x.checked);localStorage.setItem(KEY,JSON.stringify(d));update();}
-function update(){const mains=['mon-main','tue-main','wed-main','thu-main','fri-main','sat-main','sun-main'];const done=mains.filter(id=>document.getElementById(id).checked).length;document.getElementById('count').textContent=done+' / 7 sesiones';document.getElementById('bar').style.width=(done/7*100)+'%';document.querySelectorAll('.day').forEach(day=>{const c=day.querySelector('.task input');day.classList.toggle('done',!!c?.checked);});}
-controls.forEach(x=>x.addEventListener('change',save));notes.addEventListener('input',save);
-document.getElementById('reset').addEventListener('click',()=>{if(confirm('¿Reiniciar todas las marcas y notas de esta semana?')){controls.forEach(x=>x.checked=false);notes.value='';save();}});
-document.getElementById('export').addEventListener('click',()=>{let out='ENTRENAMIENTO · 23–29 NOVIEMBRE\n\n';document.querySelectorAll('.day').forEach(day=>{out+=day.querySelector('.day-name').textContent+' — '+day.querySelector('.day-sub').textContent+'\n';day.querySelectorAll('.exercise').forEach(e=>{const i=e.querySelector('input');out+=(i.checked?'[x] ':'[ ] ')+e.querySelector('label').textContent+' '+e.querySelector('em').textContent+'\n';});});out+='\nSensaciones:\n'+notes.value;const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([out],{type:'text/plain'}));a.download='resumen-entrenamiento.txt';a.click();URL.revokeObjectURL(a.href);});
-load();
-if('serviceWorker' in navigator && location.protocol.startsWith('http')){window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js'));}
-</script>
-</body></html>
+const LEGACY_KEY='entrenamientoSemana23Nov2026', DB_KEY='entrenamientoDiarioDB_v2';
+const LEGACY_IDS=['mon-main','tue-main','wed-main','w1','w2','w3','w4','w5','thu-main','fri-main','sat-main','s1','s2','s3','s4','s5','s6','s7','sun-main'];
+const defaultWeek={id:'2026-11-23',title:'23–29 noviembre 2026',start:'2026-11-23',end:'2026-11-29',savedAt:null,checks:{},notes:'',sessions:[]};
+function safeParse(s,fallback){try{return JSON.parse(s)||fallback}catch(e){return fallback}}
+const recoveredSessions=[
+ {id:'hist-run-20261013',date:'2026-10-13',type:'Carrera',distance:'',duration:'30:49',pace:'7:06',hr:'159',effort:'',weight:'',notes:'Carrera alternando carrera y caminata. FC máxima 167 ppm. Sensaciones muy cómodas.'},
+ {id:'hist-run-20261108',date:'2026-11-08',type:'Carrera',distance:'',duration:'47:33',pace:'6:53',hr:'149',effort:'',weight:'',notes:'Entrenamiento con Amaya. Tiempo corriendo: 40:40. FC máxima 187 ppm; recuperación de FC 35 ppm; cadencia 162. Zonas Garmin: Z1 21%, Z2 63%, Z3 11%, Z4 1%, Z5 1%. Distancia no facilitada.'},
+ {id:'hist-walk-20261121',date:'2026-11-21',type:'Caminata',distance:'15.8',duration:'3:06:45',pace:'',hr:'115',effort:'',weight:'',notes:'Fecha aproximada, pendiente de confirmar. FC máxima 144 ppm; 22.172 pasos. Pudiste hablar durante el recorrido. Desde el km 12 notaste las piernas cargadas, pero podías continuar; cansancio posterior moderado.'}
+];
+function initialDB(){let legacy=safeParse(localStorage.getItem(LEGACY_KEY),{});let w={...defaultWeek,checks:{},notes:legacy.notes||''};LEGACY_IDS.forEach(id=>{if(legacy[id])w.checks[id]=true});return {version:2,activeWeekId:w.id,weeks:[w],sessions:recoveredSessions.map(x=>({...x})),_historySeeded:true}}
+let db=safeParse(localStorage.getItem(DB_KEY),null);if(!db||!Array.isArray(db.weeks)){db=initialDB();persist()}
+// Add the recovered historical workouts once, without replacing anything already stored on this device.
+if(!db._historySeeded){const ids=new Set((db.sessions||[]).map(x=>x.id));recoveredSessions.forEach(x=>{if(!ids.has(x.id))db.sessions.push({...x})});db._historySeeded=true;persist()}
+function persist(){localStorage.setItem(DB_KEY,JSON.stringify(db));syncLegacy()}
+function syncLegacy(){let w=currentWeek();if(!w||w.id!=='2026-11-23')return;let obj={notes:w.notes||''};LEGACY_IDS.forEach(id=>obj[id]=!!w.checks[id]);localStorage.setItem(LEGACY_KEY,JSON.stringify(obj))}
+function currentWeek(){return db.weeks.find(w=>w.id===db.activeWeekId)||db.weeks[0]}
+// When a later weekly plan is published, preserve the previous one and add the new week automatically.
+if(!db.weeks.some(w=>w.id===defaultWeek.id)){let previous=currentWeek();if(previous&&!previous.savedAt)previous.savedAt=new Date().toISOString();db.weeks.push({...defaultWeek,checks:{},notes:'',sessions:[]});db.activeWeekId=defaultWeek.id;persist()}
+function showTab(tab){document.querySelectorAll('.tab').forEach(b=>b.classList.toggle('active',b.dataset.tab===tab));['plan','log','history','evolution'].forEach(x=>document.getElementById('view-'+x).classList.toggle('hidden',x!==tab));if(tab==='history')renderHistory();if(tab==='evolution')renderEvolution();if(tab==='log')renderRecent()}
+document.querySelectorAll('.tab').forEach(b=>b.addEventListener('click',()=>showTab(b.dataset.tab)));
+function renderWeek(){let w=currentWeek();document.getElementById('weekTitle').textContent=w.title;document.getElementById('weekNotes').value=w.notes||'';document.querySelectorAll('#weekGrid input[type=checkbox]').forEach(c=>c.checked=!!w.checks[c.id]);updateProgress()}
+function updateProgress(){let mains=['mon-main','tue-main','wed-main','thu-main','fri-main','sat-main','sun-main'];let w=currentWeek();let n=mains.filter(id=>w.checks[id]).length;document.getElementById('weekProgress').textContent=n+' / 7 días';document.getElementById('weekBar').style.width=(n/7*100)+'%';document.querySelectorAll('.day[data-day]').forEach(d=>{let c=d.querySelector('.task input');d.classList.toggle('done',!!c?.checked)})}
+document.querySelectorAll('#weekGrid input[type=checkbox]').forEach(c=>c.addEventListener('change',()=>{let w=currentWeek();w.checks[c.id]=c.checked;persist();updateProgress()}));document.getElementById('weekNotes').addEventListener('input',e=>{currentWeek().notes=e.target.value;persist()});
+document.getElementById('saveWeek').addEventListener('click',()=>{let w=currentWeek();w.savedAt=new Date().toISOString();persist();alert('Semana guardada en tu histórico. Las marcas y notas siguen en el plan.');renderHistory()});
+function esc(s){return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function sessionCard(s){let stats=[];if(s.distance)stats.push(s.distance+' km');if(s.duration)stats.push(s.duration);if(s.hr)stats.push('FC '+s.hr);if(s.pace)stats.push(s.pace+'/km');return `<article class="session"><div class="session-top"><h3>${esc(s.type)} · ${esc(s.date)}</h3><span class="tag">${esc(s.effort?('Esfuerzo '+s.effort+'/10'):'REGISTRO')}</span></div><p>${stats.map(esc).join(' · ')||'Sin métricas añadidas'}${s.weight?' · '+esc(s.weight):''}</p>${s.notes?`<p>${esc(s.notes)}</p>`:''}<div class="actions"><button class="btn danger small" data-delete-session="${esc(s.id)}">Eliminar</button></div></article>`}
+function renderRecent(){let a=[...db.sessions].sort((x,y)=>y.date.localeCompare(x.date)).slice(0,5);document.getElementById('recentSessions').innerHTML=a.length?a.map(sessionCard).join(''):'<p class="empty">Todavía no has registrado sesiones.</p>';wireDeletes()}
+function wireDeletes(){document.querySelectorAll('[data-delete-session]').forEach(b=>b.onclick=()=>{if(confirm('¿Eliminar este entrenamiento del histórico?')){db.sessions=db.sessions.filter(s=>s.id!==b.dataset.deleteSession);persist();renderRecent();renderHistory();renderEvolution()}})}
+document.getElementById('sessionForm').addEventListener('submit',e=>{e.preventDefault();let s={id:Date.now().toString(),date:document.getElementById('logDate').value,type:document.getElementById('logType').value,distance:document.getElementById('logDistance').value,duration:document.getElementById('logDuration').value,pace:document.getElementById('logPace').value,hr:document.getElementById('logHR').value,effort:document.getElementById('logEffort').value,weight:document.getElementById('logWeight').value,notes:document.getElementById('logNotes').value};db.sessions.push(s);persist();e.target.reset();document.getElementById('logDate').value=new Date().toISOString().slice(0,10);renderRecent();alert('Entrenamiento guardado.');});
+function renderHistory(){let weeks=[...db.weeks].sort((a,b)=>b.start.localeCompare(a.start));document.getElementById('weeksList').innerHTML=weeks.map(w=>{let mains=['mon-main','tue-main','wed-main','thu-main','fri-main','sat-main','sun-main'];let done=mains.filter(id=>w.checks?.[id]).length;return `<article class="week-item"><div><strong>${esc(w.title)}</strong><small>${done}/7 días marcados · ${w.savedAt?'Guardada en histórico':'Semana actual'}</small>${w.notes?`<small>${esc(w.notes)}</small>`:''}</div><span class="tag">${w.savedAt?'GUARDADA':'ACTUAL'}</span></article>`}).join('');let sessions=[...db.sessions].sort((a,b)=>(b.date||'').localeCompare(a.date||''));document.getElementById('allSessions').innerHTML=sessions.length?sessions.map(sessionCard).join(''):'<p class="empty">Aún no hay entrenamientos registrados.</p>';wireDeletes()}
+function renderEvolution(){let runs=db.sessions.filter(s=>s.type==='Carrera');let km=runs.reduce((a,s)=>a+(Number(s.distance)||0),0);let hrs=runs.map(s=>Number(s.hr)).filter(n=>n>0);document.getElementById('totalRuns').textContent=runs.length;document.getElementById('totalKm').textContent=km.toFixed(1)+' km';document.getElementById('avgHR').textContent=hrs.length?Math.round(hrs.reduce((a,b)=>a+b,0)/hrs.length)+' ppm':'—';document.getElementById('totalStrength').textContent=db.sessions.filter(s=>s.type==='Fuerza').length;let recent=[...runs].sort((a,b)=>b.date.localeCompare(a.date)).slice(0,8);document.getElementById('runEvolution').innerHTML=recent.length?recent.map(s=>`<article class="week-item"><div><strong>${esc(s.date)} · ${esc(s.distance||'—')} km</strong><small>${esc(s.duration||'Sin duración')} · ${s.hr?('FC '+esc(s.hr)):'FC no indicada'} · ${s.pace?('Ritmo '+esc(s.pace)):'Ritmo no indicado'}</small></div></article>`).join(''):'<p class="empty">Cuando registres tus carreras, aparecerán aquí.</p>'}
+function download(name,data,type){let blob=new Blob([data],{type}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(url),1000)}
+function exportDB(){download('copia-diario-entrenamiento.json',JSON.stringify(db,null,2),'application/json')}
+document.getElementById('exportAll').onclick=exportDB;document.getElementById('backupPlan').onclick=exportDB;document.getElementById('importBtn').onclick=()=>document.getElementById('importFile').click();document.getElementById('importFile').addEventListener('change',e=>{let f=e.target.files[0];if(!f)return;let r=new FileReader();r.onload=()=>{let x=safeParse(r.result,null);if(!x||!Array.isArray(x.weeks)||!Array.isArray(x.sessions)){alert('El archivo no parece una copia válida. No se ha cambiado nada.');return}if(confirm('Restaurar esta copia sustituirá los datos actuales de la aplicación. ¿Continuar?')){db=x;persist();renderWeek();renderHistory();renderEvolution();alert('Copia restaurada.')}};r.readAsText(f);e.target.value=''});
+// First visit migrates the old week's saved checkboxes/notes into the new database without deleting the old key.
+let old=safeParse(localStorage.getItem(LEGACY_KEY),null);if(old&&!db._legacyMigrated){let w=db.weeks.find(x=>x.id==='2026-11-23');if(w){LEGACY_IDS.forEach(id=>{if(old[id])w.checks[id]=true});if(old.notes)w.notes=old.notes}db._legacyMigrated=true;persist()}
+document.getElementById('logDate').value=new Date().toISOString().slice(0,10);renderWeek();renderRecent();renderHistory();renderEvolution();
+if('serviceWorker'in navigator&&location.protocol.startsWith('http'))window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js').catch(()=>{}));
+</script></body></html>
